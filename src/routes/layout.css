@@ -44,7 +44,7 @@ h1,h2,h3,h4,h5,p,a,b,u,i,ul,ol,li {
 h1 {
     font-family: 'manuka-black';
     font-size: 14rem /* 280px */;
-    line-height: 14.25rem;
+    line-height: 12.25rem;
     text-transform: uppercase;
 }
 
