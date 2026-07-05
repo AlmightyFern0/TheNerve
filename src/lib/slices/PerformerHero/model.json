@@ -1,11 +1,11 @@
 {
   "id": "performer_hero",
   "type": "SharedSlice",
-  "name": "PerformerHero",
+  "name": "Hero",
   "variations": [
     {
       "id": "default",
-      "name": "Default",
+      "name": "Performer",
       "description": "Default",
       "imageUrl": "https://images.prismic.io/thenerve/shared-slices/performer_hero/default/901590178cfd7db392d8c8c65d800a81f0c75c69.png?auto=compress%2Cformat",
       "docURL": "...",
@@ -44,6 +44,40 @@
             "allowTargetBlank": true,
             "allowText": true,
             "repeat": false
+          }
+        }
+      }
+    },
+    {
+      "id": "show",
+      "name": "Show",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/performer_hero/show/48c7921600ade0db6568f695c4ed6ecfe8da455b.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "hero_background": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "nome_performer": {
+          "type": "Text",
+          "config": {
+            "label": "Nome Performer",
+            "placeholder": "Jon Doe"
+          }
+        },
+        "bio": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Bio",
+            "placeholder": "Lorem Ipsum dolor sit amet consectetur adepscing elitr...",
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         }
       }

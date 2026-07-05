@@ -1,0 +1,34 @@
+{
+  "id": "homepage",
+  "type": "SharedSlice",
+  "name": "Homepage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/homepage/default/6ba4fd979141047d774a79d1b3ff5edef7025d9b.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "hero_title": {
+          "type": "Text",
+          "config": {
+            "label": "Hero Title",
+            "placeholder": "Amore, GAAAAYYYY!"
+          }
+        },
+        "hero_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero Description",
+            "placeholder": "Crudo e mais // Scambiatevi un segno di miao // No perché, sono stata sul palco di Elodie // ...",
+            "single": "paragraph,strong",
+            "allowTargetBlank": false
+          }
+        }
+      }
+    }
+  ],
+  "description": "Homepage"
+}

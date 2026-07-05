@@ -2,8 +2,12 @@
   "repositoryName": "thenerve",
   "routes": [
     {
+      "type": "contact",
+      "path": "/contact"
+    },
+    {
       "type": "home",
-      "path": "/home"
+      "path": "/"
     },
     {
       "type": "insights",
@@ -14,12 +18,12 @@
       "path": "/:uid"
     },
     {
-      "type": "talenti",
-      "path": "/talenti"
-    },
-    {
       "type": "singolo_performer",
       "path": "/talenti/:uid"
+    },
+    {
+      "type": "talenti",
+      "path": "/talenti"
     }
   ]
 }
