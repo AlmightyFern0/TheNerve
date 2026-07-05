@@ -37,6 +37,6 @@
 	{/if}
 </svelte:head>
 
-{@render children()}
+<main style="background-color: #0A0A0A;">{@render children()}</main>
 
 <PrismicPreview {repositoryName} />
