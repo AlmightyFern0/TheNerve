@@ -21,7 +21,7 @@
 <svelte:window bind:scrollY />
 
 <section
-	class="static top-0 left-0 grid col-span-8 grid-cols-subgrid h-[140vh] -mb-40"
+	class="static top-0 left-0 grid col-span-8 grid-cols-subgrid min-h-[140vh] h-fit max-h-[2688px] -mb-40"
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 >
