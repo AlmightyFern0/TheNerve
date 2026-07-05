@@ -17,6 +17,18 @@
           "choices": {
             "performer_hero": {
               "type": "SharedSlice"
+            },
+            "slogan": {
+              "type": "SharedSlice"
+            },
+            "key_image": {
+              "type": "SharedSlice"
+            },
+            "grid": {
+              "type": "SharedSlice"
+            },
+            "footer": {
+              "type": "SharedSlice"
             }
           }
         }

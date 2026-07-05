@@ -1,0 +1,35 @@
+{
+  "id": "grid",
+  "type": "SharedSlice",
+  "name": "Grid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/grid/default/4a81fe85532e65ad9ee481718e1029353507b8a4.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "grid_element": {
+          "type": "Group",
+          "config": {
+            "label": "Grid Element",
+            "repeat": true,
+            "fields": {
+              "grid_img": {
+                "type": "Image",
+                "config": {
+                  "label": "Grid Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Grid"
+}

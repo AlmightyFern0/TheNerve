@@ -23,6 +23,9 @@
             },
             "slogan": {
               "type": "SharedSlice"
+            },
+            "footer": {
+              "type": "SharedSlice"
             }
           }
         }

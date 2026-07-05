@@ -1,0 +1,167 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/footer/default/d78ca6fe3b85f9232369ab12c42113fa8750ba10.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "motto": {
+          "type": "Text",
+          "config": {
+            "label": "Motto",
+            "placeholder": "Crudo e mais."
+          }
+        },
+        "related_show": {
+          "type": "Link",
+          "config": {
+            "label": "Related show",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "show",
+                "fields": [
+                  "meta_title",
+                  "meta_description",
+                  "meta_image"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        },
+        "related_show_right": {
+          "type": "Link",
+          "config": {
+            "label": "Related Show Right",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "show",
+                "fields": [
+                  "meta_title",
+                  "meta_description",
+                  "meta_image"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        }
+      }
+    },
+    {
+      "id": "footerPerformer",
+      "name": "Footer Performer",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/footer/footerPerformer/7eeeea43a0effbdc4ea64822b5f5c463ffd9c1e2.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "motto": {
+          "type": "Text",
+          "config": {
+            "label": "Motto",
+            "placeholder": "Crudo e mais."
+          }
+        },
+        "related_performer": {
+          "type": "Link",
+          "config": {
+            "label": "Related Performer",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "singolo_performer",
+                "fields": [
+                  "meta_title",
+                  "meta_description",
+                  "meta_image"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        },
+        "related_performer_right": {
+          "type": "Link",
+          "config": {
+            "label": "Related Performer Right",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "singolo_performer",
+                "fields": [
+                  "meta_title",
+                  "meta_description",
+                  "meta_image"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        }
+      }
+    },
+    {
+      "id": "footerGeneric",
+      "name": "Footer Generic",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/footer/footerGeneric/e9677e282e2e1414c4fd5d67c2f392679fba7b7d.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "motto": {
+          "type": "Text",
+          "config": {
+            "label": "Motto",
+            "placeholder": "Crudo e mais."
+          }
+        },
+        "related_performer": {
+          "type": "Link",
+          "config": {
+            "label": "Related Performer",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "singolo_performer",
+                "fields": [
+                  "meta_title",
+                  "meta_description",
+                  "meta_image"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        },
+        "related_performer_right": {
+          "type": "Link",
+          "config": {
+            "label": "Related Performer Right",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "singolo_performer",
+                "fields": [
+                  "meta_title",
+                  "meta_description",
+                  "meta_image"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        }
+      }
+    }
+  ],
+  "description": "Footer"
+}

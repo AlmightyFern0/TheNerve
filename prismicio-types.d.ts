@@ -166,7 +166,7 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type InsightsDocumentDataSlicesSlice = never
+type InsightsDocumentDataSlicesSlice = FooterSlice
 
 /**
  * Content for Insights documents
@@ -226,7 +226,7 @@ interface InsightsDocumentData {
  */
 export type InsightsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<InsightsDocumentData>, "insights", Lang>;
 
-type ShowDocumentDataSlicesSlice = PerformerHeroSlice
+type ShowDocumentDataSlicesSlice = PerformerHeroSlice | SloganSlice | KeyImageSlice | GridSlice | FooterSlice
 
 /**
  * Content for Show documents
@@ -286,7 +286,7 @@ interface ShowDocumentData {
  */
 export type ShowDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<ShowDocumentData>, "show", Lang>;
 
-type SingoloPerformerDocumentDataSlicesSlice = PerformerHeroSlice | PerformerGridSlice | SloganSlice
+type SingoloPerformerDocumentDataSlicesSlice = PerformerHeroSlice | PerformerGridSlice | SloganSlice | FooterSlice
 
 /**
  * Content for Singolo Performer documents
@@ -409,6 +409,205 @@ export type TalentiDocument<Lang extends string = string> = prismic.PrismicDocum
 export type AllDocumentTypes = ContactDocument | HomeDocument | InsightsDocument | ShowDocument | SingoloPerformerDocument | TalentiDocument;
 
 /**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+	/**
+	 * Motto field in *Footer → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Crudo e mais.
+	 * - **API ID Path**: footer.default.primary.motto
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	motto: prismic.KeyTextField;
+	
+	/**
+	 * Related show field in *Footer → Default → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.default.primary.related_show
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	related_show: ContentRelationshipFieldWithData<[{"id":"show","fields":["meta_title","meta_description","meta_image"]}]>;
+	
+	/**
+	 * Related Show Right field in *Footer → Default → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.default.primary.related_show_right
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	related_show_right: ContentRelationshipFieldWithData<[{"id":"show","fields":["meta_title","meta_description","meta_image"]}]>;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FooterSliceDefaultPrimary>, never>;
+
+/**
+ * Primary content in *Footer → Footer Performer → Primary*
+ */
+export interface FooterSliceFooterPerformerPrimary {
+	/**
+	 * Motto field in *Footer → Footer Performer → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Crudo e mais.
+	 * - **API ID Path**: footer.footerPerformer.primary.motto
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	motto: prismic.KeyTextField;
+	
+	/**
+	 * Related Performer field in *Footer → Footer Performer → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.footerPerformer.primary.related_performer
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	related_performer: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_description","meta_image"]}]>;
+	
+	/**
+	 * Related Performer Right field in *Footer → Footer Performer → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.footerPerformer.primary.related_performer_right
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	related_performer_right: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_description","meta_image"]}]>;
+}
+
+/**
+ * Footer Performer variation for Footer Slice
+ *
+ * - **API ID**: `footerPerformer`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSliceFooterPerformer = prismic.SharedSliceVariation<"footerPerformer", Simplify<FooterSliceFooterPerformerPrimary>, never>;
+
+/**
+ * Primary content in *Footer → Footer Generic → Primary*
+ */
+export interface FooterSliceFooterGenericPrimary {
+	/**
+	 * Motto field in *Footer → Footer Generic → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Crudo e mais.
+	 * - **API ID Path**: footer.footerGeneric.primary.motto
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	motto: prismic.KeyTextField;
+	
+	/**
+	 * Related Performer field in *Footer → Footer Generic → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.footerGeneric.primary.related_performer
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	related_performer: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_description","meta_image"]}]>;
+	
+	/**
+	 * Related Performer Right field in *Footer → Footer Generic → Primary*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.footerGeneric.primary.related_performer_right
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	related_performer_right: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_description","meta_image"]}]>;
+}
+
+/**
+ * Footer Generic variation for Footer Slice
+ *
+ * - **API ID**: `footerGeneric`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSliceFooterGeneric = prismic.SharedSliceVariation<"footerGeneric", Simplify<FooterSliceFooterGenericPrimary>, never>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault | FooterSliceFooterPerformer | FooterSliceFooterGeneric
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
+ * Item in *Grid → Default → Primary → Grid Element*
+ */
+export interface GridSliceDefaultPrimaryGridElementItem {
+	/**
+	 * Grid Image field in *Grid → Default → Primary → Grid Element*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: grid.default.primary.grid_element[].grid_img
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	grid_img: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Grid → Default → Primary*
+ */
+export interface GridSliceDefaultPrimary {
+	/**
+	 * Grid Element field in *Grid → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: grid.default.primary.grid_element[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	grid_element: prismic.GroupField<Simplify<GridSliceDefaultPrimaryGridElementItem>>;
+}
+
+/**
+ * Default variation for Grid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type GridSliceDefault = prismic.SharedSliceVariation<"default", Simplify<GridSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Grid*
+ */
+type GridSliceVariation = GridSliceDefault
+
+/**
+ * Grid Shared Slice
+ *
+ * - **API ID**: `grid`
+ * - **Description**: Grid
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type GridSlice = prismic.SharedSlice<"grid", GridSliceVariation>;
+
+/**
  * Primary content in *Homepage → Default → Primary*
  */
 export interface HomepageSliceDefaultPrimary {
@@ -455,6 +654,44 @@ type HomepageSliceVariation = HomepageSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HomepageSlice = prismic.SharedSlice<"homepage", HomepageSliceVariation>;
+
+/**
+ * Primary content in *KeyImage → Default → Primary*
+ */
+export interface KeyImageSliceDefaultPrimary {
+	/**
+	 * Key Image field in *KeyImage → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: key_image.default.primary.key_img
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	key_img: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for KeyImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type KeyImageSliceDefault = prismic.SharedSliceVariation<"default", Simplify<KeyImageSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *KeyImage*
+ */
+type KeyImageSliceVariation = KeyImageSliceDefault
+
+/**
+ * KeyImage Shared Slice
+ *
+ * - **API ID**: `key_image`
+ * - **Description**: KeyImage
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type KeyImageSlice = prismic.SharedSlice<"key_image", KeyImageSliceVariation>;
 
 /**
  * Primary content in *PerformerGrid → Default → Primary*
@@ -862,10 +1099,27 @@ declare module "@prismicio/client" {
 			TalentiDocumentData,
 			TalentiDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			FooterSlice,
+			FooterSliceDefaultPrimary,
+			FooterSliceFooterPerformerPrimary,
+			FooterSliceFooterGenericPrimary,
+			FooterSliceVariation,
+			FooterSliceDefault,
+			FooterSliceFooterPerformer,
+			FooterSliceFooterGeneric,
+			GridSlice,
+			GridSliceDefaultPrimaryGridElementItem,
+			GridSliceDefaultPrimary,
+			GridSliceVariation,
+			GridSliceDefault,
 			HomepageSlice,
 			HomepageSliceDefaultPrimary,
 			HomepageSliceVariation,
 			HomepageSliceDefault,
+			KeyImageSlice,
+			KeyImageSliceDefaultPrimary,
+			KeyImageSliceVariation,
+			KeyImageSliceDefault,
 			PerformerGridSlice,
 			PerformerGridSliceDefaultPrimary,
 			PerformerGridSliceVariantPrimary,

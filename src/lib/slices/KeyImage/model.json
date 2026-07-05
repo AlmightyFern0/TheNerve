@@ -1,0 +1,26 @@
+{
+  "id": "key_image",
+  "type": "SharedSlice",
+  "name": "KeyImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/key_image/default/a6f2417cdabe3c50d16a6def711ef6780bc012de.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "key_img": {
+          "type": "Image",
+          "config": {
+            "label": "Key Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ],
+  "description": "KeyImage"
+}
