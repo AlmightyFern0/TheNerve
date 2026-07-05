@@ -6,4 +6,6 @@
 	const { data }: PageProps = $props();
 </script>
 
-<SliceZone slices={data.page.data.slices} {components} />
+<div class="w-screen max-w-375">
+	<SliceZone slices={data.page.data.slices} {components} />
+</div>

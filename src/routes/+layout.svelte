@@ -13,6 +13,7 @@
 
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import tnLogo from '$lib/assets/tnLogo.png';
 	import {page} from '$app/state';
 	import { isFilled, asImageSrc } from '@prismicio/client';
 	import { PrismicPreview } from "@prismicio/svelte/kit";
@@ -37,6 +38,23 @@
 	{/if}
 </svelte:head>
 
-<main style="background-color: #0A0A0A;">{@render children()}</main>
+<main class="max-w-375" style="background-color: #0A0A0A;">
+	<a href="/" aria-current={page.url.pathname === '/'}><img class="fixed top-8 ml-0 h-16 z-50" src={tnLogo} alt="Logo"></a>
+
+	<a href="#main-content" class="absolute left-0 top-40 bg-black text-white py-2 px-4 z-50 transform -translate-x-full focus:translate-x-0 transition">Skip to main content</a>
+
+	<div class="fixed w-[250vw] left-[-125vw] -ml-10 bottom-[-20vh] h-[40vh] bg-radial from-[#ff00bf] to-transparent to-50% opacity-50 z-50" style="pointer-events: none"></div>
+
+	<nav class="fixed bottom-0 pb-6 w-full z-50 grid grid-cols-8">
+		<ul class="gap-8 font-bold flex col-span-3">
+			<li><a href="/talenti" aria-current={page.url.pathname === '/talenti'}>Talenti</a></li>
+			<li><a href="/insights" aria-current={page.url.pathname === '/insights'}>Insights</a></li>
+			<li><a href="/contact" aria-current={page.url.pathname === '/contact'}>Contact</a></li>
+		</ul>
+		<!--<b class="w-full col-start-4 col-end-6">Prossimo show 06/06/2026 // OffTopic</b>-->
+	</nav>
+
+	<div class="grid grid-cols-8 w-full overflow-x-hidden gap-x-4 gap-y-20" id="main-content">{@render children()}</div>
+</main>
 
 <PrismicPreview {repositoryName} />
