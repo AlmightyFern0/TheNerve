@@ -54,7 +54,7 @@
 		<!--<b class="w-full col-start-4 col-end-6">Prossimo show 06/06/2026 // OffTopic</b>-->
 	</nav>
 
-	<div class="grid grid-cols-8 w-full overflow-x-hidden gap-x-4 gap-y-20" id="main-comtent">{@render children()}</div>
+	<div class="grid grid-cols-8 w-full overflow-x-hidden gap-x-4 gap-y-20" id="main-content">{@render children()}</div>
 </main>
 
 <PrismicPreview {repositoryName} />
