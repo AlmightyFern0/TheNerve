@@ -1,0 +1,25 @@
+{
+  "id": "slogan",
+  "type": "SharedSlice",
+  "name": "Slogan",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/slogan/default/8c77bc9559db64beaf93942c86f25ffe5b1a6f27.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "slogan": {
+          "type": "Text",
+          "config": {
+            "label": "Slogan",
+            "placeholder": "Lorem ipsum dolor sit amet"
+          }
+        }
+      }
+    }
+  ],
+  "description": "Slogan"
+}

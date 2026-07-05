@@ -21,13 +21,13 @@
 <svelte:window bind:scrollY />
 
 <section
-	class="static top-0 left-0 grid col-span-8 grid-cols-subgrid min-h-[140vh] h-fit max-h-[2688px] -mb-40"
+	class="static top-0 left-0 grid col-span-8 grid-cols-subgrid h-[140vh] max-h-[2688px] -mb-40"
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 >
     <div class="grid col-span-8 grid-cols-subgrid">
         <h1 class="sticky top-30 -mb-2.5 col-span-5 z-10">{slice.primary.nome_performer}</h1>
-        <span class="col-span-4 col-start-5 z-50 mt-40">
+        <span class="col-span-4 col-start-5 z-50 mt-15">
             <div class="col-span-4 col-start-5 max-h-200">
                 <PrismicRichText field={slice.primary.bio} />
             </div>
@@ -40,8 +40,8 @@
 
     <img
         src={slice.primary.hero_background.url}
-        alt="zaniah background"
-        class="absolute top-0 left-0 col-span-8 z-0 w-screen h-screen max-h-[1920px] object-cover"
+        alt={slice.primary.hero_background.alt}
+        class="absolute top-0 left-0 col-span-8 z-0 w-screen h-[92.5vh] max-h-[1920px] object-cover"
         style="transform: scale({scale}); transform-origin: center;"
     >
 </section>

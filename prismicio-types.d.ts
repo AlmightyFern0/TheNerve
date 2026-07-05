@@ -226,7 +226,7 @@ interface ShowDocumentData {
  */
 export type ShowDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<ShowDocumentData>, "show", Lang>;
 
-type SingoloPerformerDocumentDataSlicesSlice = PerformerHeroSlice
+type SingoloPerformerDocumentDataSlicesSlice = PerformerHeroSlice | PerformerGridSlice | SloganSlice
 
 /**
  * Content for Singolo Performer documents
@@ -349,6 +349,228 @@ export type TalentiDocument<Lang extends string = string> = prismic.PrismicDocum
 export type AllDocumentTypes = HomeDocument | InsightsDocument | ShowDocument | SingoloPerformerDocument | TalentiDocument;
 
 /**
+ * Primary content in *PerformerGrid → Default → Primary*
+ */
+export interface PerformerGridSliceDefaultPrimary {
+	/**
+	 * Immagine 1 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_1
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_1: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 2 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_2
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_2: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 3 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_3
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_3: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 4 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_4
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_4: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 5 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_5
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_5: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 6 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_6
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_6: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 7 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_7
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_7: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 8 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_8
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_8: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 9 field in *PerformerGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.default.primary.img_9
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_9: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for PerformerGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PerformerGridSliceDefault = prismic.SharedSliceVariation<"default", Simplify<PerformerGridSliceDefaultPrimary>, never>;
+
+/**
+ * Primary content in *PerformerGrid → Variant → Primary*
+ */
+export interface PerformerGridSliceVariantPrimary {
+	/**
+	 * Immagine 1 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_1
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_1: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 2 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_2
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_2: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 3 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_3
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_3: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 4 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_4
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_4: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 5 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_5
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_5: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 6 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_6
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_6: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 7 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_7
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_7: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 8 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_8
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_8: prismic.ImageField<never>;
+	
+	/**
+	 * Immagine 9 field in *PerformerGrid → Variant → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_grid.variant.primary.img_9
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	img_9: prismic.ImageField<never>;
+}
+
+/**
+ * Variant variation for PerformerGrid Slice
+ *
+ * - **API ID**: `variant`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PerformerGridSliceVariant = prismic.SharedSliceVariation<"variant", Simplify<PerformerGridSliceVariantPrimary>, never>;
+
+/**
+ * Slice variation for *PerformerGrid*
+ */
+type PerformerGridSliceVariation = PerformerGridSliceDefault | PerformerGridSliceVariant
+
+/**
+ * PerformerGrid Shared Slice
+ *
+ * - **API ID**: `performer_grid`
+ * - **Description**: PerformerGrid
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PerformerGridSlice = prismic.SharedSlice<"performer_grid", PerformerGridSliceVariation>;
+
+/**
  * Primary content in *PerformerHero → Default → Primary*
  */
 export interface PerformerHeroSliceDefaultPrimary {
@@ -416,6 +638,44 @@ type PerformerHeroSliceVariation = PerformerHeroSliceDefault
  */
 export type PerformerHeroSlice = prismic.SharedSlice<"performer_hero", PerformerHeroSliceVariation>;
 
+/**
+ * Primary content in *Slogan → Default → Primary*
+ */
+export interface SloganSliceDefaultPrimary {
+	/**
+	 * Slogan field in *Slogan → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Lorem ipsum dolor sit amet
+	 * - **API ID Path**: slogan.default.primary.slogan
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	slogan: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Slogan Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SloganSliceDefault = prismic.SharedSliceVariation<"default", Simplify<SloganSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Slogan*
+ */
+type SloganSliceVariation = SloganSliceDefault
+
+/**
+ * Slogan Shared Slice
+ *
+ * - **API ID**: `slogan`
+ * - **Description**: Slogan
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SloganSlice = prismic.SharedSlice<"slogan", SloganSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -447,10 +707,20 @@ declare module "@prismicio/client" {
 			TalentiDocumentData,
 			TalentiDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			PerformerGridSlice,
+			PerformerGridSliceDefaultPrimary,
+			PerformerGridSliceVariantPrimary,
+			PerformerGridSliceVariation,
+			PerformerGridSliceDefault,
+			PerformerGridSliceVariant,
 			PerformerHeroSlice,
 			PerformerHeroSliceDefaultPrimary,
 			PerformerHeroSliceVariation,
-			PerformerHeroSliceDefault
+			PerformerHeroSliceDefault,
+			SloganSlice,
+			SloganSliceDefaultPrimary,
+			SloganSliceVariation,
+			SloganSliceDefault
 		}
 	}
 }
