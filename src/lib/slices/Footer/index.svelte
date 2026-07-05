@@ -1,23 +1,28 @@
 <script lang="ts">
-	import type { Content } from '@prismicio/client';
+	import { isFilled, type Content } from '@prismicio/client';
 	import type { SliceComponentProps } from '@prismicio/svelte';
-	import { PrismicRichText } from '@prismicio/svelte';
+	import { PrismicLink } from '@prismicio/svelte';
 	import tnLogo from '$lib/assets/tnLogo.png';
 	import {page} from '$app/state';
 
 	type Props = SliceComponentProps<Content.FooterSlice>;
 
 	const { slice }: Props = $props();
+
+	const stripSitePrefix = (title: string | null | undefined) =>
+		title?.replace(/^The Nerve \| /, '') ?? '';
 </script>
 
-<footer class="grid grid-cols-8 gap-x-4 w-full my-40">
+<footer class="grid grid-cols-8 col-span-8 gap-x-4 w-full my-40 bg-[#0A0A0A]">
     <h1 class="col-span-8 text-center">{slice.primary.motto}</h1>
 
 	{#if slice.variation == 'footerPerformer'}
 		<div class="col-span-8 flex flex-row w-full my-40">
-			<a href="http://google.com" class="uppercase">
-				<b>Perfomer</b>
-			</a>
+            <PrismicLink class="uppercase" field={slice.primary.related_performer} >
+                <strong>
+                    {isFilled.contentRelationship(slice.primary.related_performer) ? stripSitePrefix(slice.primary.related_performer.data?.meta_title) : ''}
+                </strong>
+            </PrismicLink>
 
 			<hr class="flex-1 border-white mx-4 mt-3.5">
 
@@ -25,17 +30,21 @@
 
 			<hr class="flex-1 border-white mx-4 mt-3.5">
 
-			<a href="http://google.com" class="text-right uppercase">
-				<b>Performer</b>
-			</a>
+            <PrismicLink class="text-right uppercase" field={slice.primary.related_performer_right}>
+				<strong>
+                    {isFilled.contentRelationship(slice.primary.related_performer_right) ? stripSitePrefix(slice.primary.related_performer_right.data?.meta_title) : ''}
+                </strong>
+			</PrismicLink>
 		</div>
 
 	{:else if slice.variation == 'default'}
 
 		<div class="col-span-8 flex flex-row w-full my-40">
-			<a href="http://google.com" class="uppercase">
-				<b>show</b>
-			</a>
+			<PrismicLink class="uppercase" field={slice.primary.related_show}>
+				<strong>
+                    {isFilled.contentRelationship(slice.primary.related_show) ? stripSitePrefix(slice.primary.related_show.data?.meta_title) : ''}
+                </strong>
+			</PrismicLink>
 
 			<hr class="flex-1 border-white mx-4 mt-3.5">
 
@@ -43,9 +52,11 @@
 
 			<hr class="flex-1 border-white mx-4 mt-3.5">
 
-			<a href="http://google.com" class="text-right uppercase">
-				<b>show</b>
-			</a>
+			<PrismicLink class="text-right uppercase" field={slice.primary.related_show_right}>
+				<strong>
+                    {isFilled.contentRelationship(slice.primary.related_show_right) ? stripSitePrefix(slice.primary.related_show_right.data?.meta_title) : ''}
+                </strong>
+			</PrismicLink>
 		</div>
 	{/if}
 
