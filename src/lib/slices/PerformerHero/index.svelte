@@ -27,7 +27,7 @@
 >
     <div class="grid col-span-8 grid-cols-subgrid">
         <h1 class="sticky top-30 -mb-2.5 col-span-5 z-10">{slice.primary.nome_performer}</h1>
-        <span class="col-span-4 col-start-5 z-50 mt-20">
+        <span class="col-span-4 col-start-5 z-50 mt-40">
             <div class="col-span-4 col-start-5">
                 <PrismicRichText field={slice.primary.bio} />
             </div>
@@ -41,7 +41,7 @@
     <img
         src={slice.primary.hero_background.url}
         alt="zaniah background"
-        class="absolute top-0 left-0 col-span-8 z-0 w-screen h-screen object-cover"
+        class="absolute top-0 left-0 col-span-8 z-0 w-screen h-screen max-h-[1920px] object-cover"
         style="transform: scale({scale}); transform-origin: center;"
     >
 </section>
