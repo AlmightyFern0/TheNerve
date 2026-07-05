@@ -1,0 +1,25 @@
+{
+  "repositoryName": "thenerve",
+  "routes": [
+    {
+      "type": "home",
+      "path": "/home"
+    },
+    {
+      "type": "insights",
+      "path": "/insights"
+    },
+    {
+      "type": "show",
+      "path": "/:uid"
+    },
+    {
+      "type": "talenti",
+      "path": "/talenti"
+    },
+    {
+      "type": "singolo_performer",
+      "path": "/talenti/:uid"
+    }
+  ]
+}
