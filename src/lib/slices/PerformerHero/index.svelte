@@ -28,7 +28,9 @@
     <div class="grid col-span-8 grid-cols-subgrid">
         <h1 class="sticky top-30 -mb-2.5 col-span-5 z-10">{slice.primary.nome_performer}</h1>
         <span class="col-span-4 col-start-5 z-50 mt-20">
-            <PrismicRichText class="col-span-4 col-start-5" field={slice.primary.bio} />
+            <div class="col-span-4 col-start-5">
+                <PrismicRichText field={slice.primary.bio} />
+            </div>
             <PrismicLink field={slice.primary.instagram} class="col-start-5 mt-8 flex gap-2 max-w-fit">
 				<img src={igLogo} alt="Instagram Logo" class="h-6">
 				<b>@{slice.primary.instagram.text ?? 'jondoe'}</b>
