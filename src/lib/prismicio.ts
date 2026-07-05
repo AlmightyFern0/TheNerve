@@ -1,3 +1,4 @@
+/// <reference path="../../prismicio-types.d.ts" />
 import { createClient as baseCreateClient } from "@prismicio/client";
 import { type CreateClientConfig, enableAutoPreviews } from '@prismicio/svelte/kit';
 import prismicConfig from "../../prismic.config.json";

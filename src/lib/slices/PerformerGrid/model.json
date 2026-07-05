@@ -1,0 +1,172 @@
+{
+  "id": "performer_grid",
+  "type": "SharedSlice",
+  "name": "PerformerGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/performer_grid/default/d3b52d36a962e77c837e67c258c636aa0bcdb8c8.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "img_1": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_2": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_3": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_4": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_5": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 5",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_6": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 6",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_7": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 7",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_8": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 8",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_9": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 9",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    },
+    {
+      "id": "variant",
+      "name": "Variant",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/performer_grid/variant/2ba5cb559310bb7a70574ac86f82fe2937370cd4.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "img_1": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_2": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_3": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_4": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_5": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 5",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_6": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 6",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_7": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 7",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_8": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 8",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "img_9": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine 9",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ],
+  "description": "PerformerGrid"
+}

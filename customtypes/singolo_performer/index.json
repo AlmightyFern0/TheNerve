@@ -17,6 +17,12 @@
           "choices": {
             "performer_hero": {
               "type": "SharedSlice"
+            },
+            "performer_grid": {
+              "type": "SharedSlice"
+            },
+            "slogan": {
+              "type": "SharedSlice"
             }
           }
         }
