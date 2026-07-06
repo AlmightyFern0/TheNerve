@@ -123,42 +123,6 @@
             "label": "Motto",
             "placeholder": "Crudo e mais."
           }
-        },
-        "related_performer": {
-          "type": "Link",
-          "config": {
-            "label": "Related Performer",
-            "select": "document",
-            "customtypes": [
-              {
-                "id": "singolo_performer",
-                "fields": [
-                  "meta_title",
-                  "meta_description",
-                  "meta_image"
-                ]
-              }
-            ],
-            "repeat": false
-          }
-        },
-        "related_performer_right": {
-          "type": "Link",
-          "config": {
-            "label": "Related Performer Right",
-            "select": "document",
-            "customtypes": [
-              {
-                "id": "singolo_performer",
-                "fields": [
-                  "meta_title",
-                  "meta_description",
-                  "meta_image"
-                ]
-              }
-            ],
-            "repeat": false
-          }
         }
       }
     }

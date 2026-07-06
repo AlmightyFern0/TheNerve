@@ -39,7 +39,7 @@
 </svelte:head>
 
 <main class="max-w-375" style="background-color: #0A0A0A;">
-	<a href="/" aria-current={page.url.pathname === '/'}><img class="fixed top-8 ml-0 h-16 z-50" src={tnLogo} alt="Logo"></a>
+	<a href="/" aria-current={page.url.pathname === '/'} class="z-50"><img class="fixed top-8 ml-0 h-16 z-50" src={tnLogo} alt="Logo"></a>
 
 	<a href="#main-content" class="absolute left-0 top-40 bg-black text-white py-2 px-4 z-50 transform -translate-x-full focus:translate-x-0 transition">Skip to main content</a>
 

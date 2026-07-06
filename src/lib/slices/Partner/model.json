@@ -1,0 +1,62 @@
+{
+  "id": "partner",
+  "type": "SharedSlice",
+  "name": "Partner",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/partner/default/8f040e4fb0709e503c111cd0fdf6b2a6e007b7ae.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "partner": {
+          "type": "Group",
+          "config": {
+            "label": "Partner",
+            "repeat": true,
+            "fields": {
+              "cover": {
+                "type": "Image",
+                "config": {
+                  "label": "Cover",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Titolo",
+                  "placeholder": "Nome partner"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Descrizione",
+                  "placeholder": "Lorem ipsum dolor sit amet consectetur adepscing elitr.",
+                  "multi": "paragraph,strong",
+                  "allowTargetBlank": true
+                }
+              },
+              "partner_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Partner",
+                  "placeholder": "https://website.com",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Partner"
+}

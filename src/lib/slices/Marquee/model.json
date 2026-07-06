@@ -1,0 +1,34 @@
+{
+  "id": "marquee",
+  "type": "SharedSlice",
+  "name": "Marquee",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/marquee/default/ae1816d3699f7b7bb3cda57896b99e05c7e281c3.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "marquee_titles": {
+          "type": "Group",
+          "config": {
+            "label": "Titoli Marquee",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "It Takes Nerve"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Marquee"
+}

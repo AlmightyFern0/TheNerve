@@ -166,7 +166,7 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type InsightsDocumentDataSlicesSlice = FooterSlice
+type InsightsDocumentDataSlicesSlice = FooterSlice | DescrizioneSlice | GridSlice | PerformerHeroSlice | KeyImageSlice | SloganSlice | PartnerSlice | MarqueeSlice
 
 /**
  * Content for Insights documents
@@ -346,7 +346,7 @@ interface SingoloPerformerDocumentData {
  */
 export type SingoloPerformerDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<SingoloPerformerDocumentData>, "singolo_performer", Lang>;
 
-type TalentiDocumentDataSlicesSlice = never
+type TalentiDocumentDataSlicesSlice = TalentiSlice
 
 /**
  * Content for Talenti documents
@@ -407,6 +407,98 @@ interface TalentiDocumentData {
 export type TalentiDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<TalentiDocumentData>, "talenti", Lang>;
 
 export type AllDocumentTypes = ContactDocument | HomeDocument | InsightsDocument | ShowDocument | SingoloPerformerDocument | TalentiDocument;
+
+/**
+ * Primary content in *Descrizione → Default → Primary*
+ */
+export interface DescrizioneSliceDefaultPrimary {
+	/**
+	 * Titolo field in *Descrizione → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: It Takes Nerve
+	 * - **API ID Path**: descrizione.default.primary.titolo
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	titolo: prismic.KeyTextField;
+	
+	/**
+	 * Descrizione field in *Descrizione → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Lorem ipsum dolor sit amet consectetur adepiscing elitr
+	 * - **API ID Path**: descrizione.default.primary.descrizione
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	descrizione: prismic.RichTextField;
+	
+	/**
+	 * Instagram field in *Descrizione → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: Non inserire @ c'è già di default
+	 * - **API ID Path**: descrizione.default.primary.instagram
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	instagram: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for Descrizione Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescrizioneSliceDefault = prismic.SharedSliceVariation<"default", Simplify<DescrizioneSliceDefaultPrimary>, never>;
+
+/**
+ * Primary content in *Descrizione → No Title → Primary*
+ */
+export interface DescrizioneSliceNoTitlePrimary {
+	/**
+	 * Descrizione field in *Descrizione → No Title → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Lorem ipsum dolor sit amet consectetur adepiscing elitr
+	 * - **API ID Path**: descrizione.noTitle.primary.descrizione
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	descrizione: prismic.RichTextField;
+	
+	/**
+	 * Instagram field in *Descrizione → No Title → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: Non inserire @ c'è già di default
+	 * - **API ID Path**: descrizione.noTitle.primary.instagram
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	instagram: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * No Title variation for Descrizione Slice
+ *
+ * - **API ID**: `noTitle`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescrizioneSliceNoTitle = prismic.SharedSliceVariation<"noTitle", Simplify<DescrizioneSliceNoTitlePrimary>, never>;
+
+/**
+ * Slice variation for *Descrizione*
+ */
+type DescrizioneSliceVariation = DescrizioneSliceDefault | DescrizioneSliceNoTitle
+
+/**
+ * Descrizione Shared Slice
+ *
+ * - **API ID**: `descrizione`
+ * - **Description**: Descrizione
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescrizioneSlice = prismic.SharedSlice<"descrizione", DescrizioneSliceVariation>;
 
 /**
  * Primary content in *Footer → Default → Primary*
@@ -509,26 +601,6 @@ export interface FooterSliceFooterGenericPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	motto: prismic.KeyTextField;
-	
-	/**
-	 * Related Performer field in *Footer → Footer Generic → Primary*
-	 *
-	 * - **Field Type**: Content Relationship
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer.footerGeneric.primary.related_performer
-	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-	 */
-	related_performer: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_description","meta_image"]}]>;
-	
-	/**
-	 * Related Performer Right field in *Footer → Footer Generic → Primary*
-	 *
-	 * - **Field Type**: Content Relationship
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: footer.footerGeneric.primary.related_performer_right
-	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-	 */
-	related_performer_right: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_description","meta_image"]}]>;
 }
 
 /**
@@ -608,6 +680,21 @@ type GridSliceVariation = GridSliceDefault
 export type GridSlice = prismic.SharedSlice<"grid", GridSliceVariation>;
 
 /**
+ * Item in *Homepage → Default → Primary → Show Link*
+ */
+export interface HomepageSliceDefaultPrimaryShowLinkItem {
+	/**
+	 * Show field in *Homepage → Default → Primary → Show Link*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: homepage.default.primary.show_link[].show
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	show: ContentRelationshipFieldWithData<[{"id":"show","fields":["meta_image"]}]>;
+}
+
+/**
  * Primary content in *Homepage → Default → Primary*
  */
 export interface HomepageSliceDefaultPrimary {
@@ -630,6 +717,16 @@ export interface HomepageSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	hero_description: prismic.RichTextField;
+	
+	/**
+	 * Show Link field in *Homepage → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: homepage.default.primary.show_link[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	show_link: prismic.GroupField<Simplify<HomepageSliceDefaultPrimaryShowLinkItem>>;
 }
 
 /**
@@ -692,6 +789,142 @@ type KeyImageSliceVariation = KeyImageSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type KeyImageSlice = prismic.SharedSlice<"key_image", KeyImageSliceVariation>;
+
+/**
+ * Item in *Marquee → Default → Primary → Titoli Marquee*
+ */
+export interface MarqueeSliceDefaultPrimaryMarqueeTitlesItem {
+	/**
+	 * Title field in *Marquee → Default → Primary → Titoli Marquee*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: It Takes Nerve
+	 * - **API ID Path**: marquee.default.primary.marquee_titles[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Marquee → Default → Primary*
+ */
+export interface MarqueeSliceDefaultPrimary {
+	/**
+	 * Titoli Marquee field in *Marquee → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: marquee.default.primary.marquee_titles[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	marquee_titles: prismic.GroupField<Simplify<MarqueeSliceDefaultPrimaryMarqueeTitlesItem>>;
+}
+
+/**
+ * Default variation for Marquee Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MarqueeSliceDefault = prismic.SharedSliceVariation<"default", Simplify<MarqueeSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Marquee*
+ */
+type MarqueeSliceVariation = MarqueeSliceDefault
+
+/**
+ * Marquee Shared Slice
+ *
+ * - **API ID**: `marquee`
+ * - **Description**: Marquee
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MarqueeSlice = prismic.SharedSlice<"marquee", MarqueeSliceVariation>;
+
+/**
+ * Item in *Partner → Default → Primary → Partner*
+ */
+export interface PartnerSliceDefaultPrimaryPartnerItem {
+	/**
+	 * Cover field in *Partner → Default → Primary → Partner*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: partner.default.primary.partner[].cover
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	cover: prismic.ImageField<never>;
+	
+	/**
+	 * Titolo field in *Partner → Default → Primary → Partner*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Nome partner
+	 * - **API ID Path**: partner.default.primary.partner[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Descrizione field in *Partner → Default → Primary → Partner*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Lorem ipsum dolor sit amet consectetur adepscing elitr.
+	 * - **API ID Path**: partner.default.primary.partner[].description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+	
+	/**
+	 * Link Partner field in *Partner → Default → Primary → Partner*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: https://website.com
+	 * - **API ID Path**: partner.default.primary.partner[].partner_link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	partner_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *Partner → Default → Primary*
+ */
+export interface PartnerSliceDefaultPrimary {
+	/**
+	 * Partner field in *Partner → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: partner.default.primary.partner[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	partner: prismic.GroupField<Simplify<PartnerSliceDefaultPrimaryPartnerItem>>;
+}
+
+/**
+ * Default variation for Partner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PartnerSliceDefault = prismic.SharedSliceVariation<"default", Simplify<PartnerSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Partner*
+ */
+type PartnerSliceVariation = PartnerSliceDefault
+
+/**
+ * Partner Shared Slice
+ *
+ * - **API ID**: `partner`
+ * - **Description**: Partner
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PartnerSlice = prismic.SharedSlice<"partner", PartnerSliceVariation>;
 
 /**
  * Primary content in *PerformerGrid → Default → Primary*
@@ -984,10 +1217,10 @@ export interface PerformerHeroSliceShowPrimary {
 	hero_background: prismic.ImageField<never>;
 	
 	/**
-	 * Nome Performer field in *Hero → Show → Primary*
+	 * Nome Show field in *Hero → Show → Primary*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Jon Doe
+	 * - **Placeholder**: Gran Cabaret
 	 * - **API ID Path**: performer_hero.show.primary.nome_performer
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
@@ -1014,9 +1247,43 @@ export interface PerformerHeroSliceShowPrimary {
 export type PerformerHeroSliceShow = prismic.SharedSliceVariation<"show", Simplify<PerformerHeroSliceShowPrimary>, never>;
 
 /**
+ * Primary content in *Hero → Insights → Primary*
+ */
+export interface PerformerHeroSliceInsightsPrimary {
+	/**
+	 * Hero Background field in *Hero → Insights → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: performer_hero.insights.primary.hero_background
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	hero_background: prismic.ImageField<never>;
+	
+	/**
+	 * Insights field in *Hero → Insights → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Insights
+	 * - **API ID Path**: performer_hero.insights.primary.nome_performer
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	nome_performer: prismic.KeyTextField;
+}
+
+/**
+ * Insights variation for Hero Slice
+ *
+ * - **API ID**: `insights`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PerformerHeroSliceInsights = prismic.SharedSliceVariation<"insights", Simplify<PerformerHeroSliceInsightsPrimary>, never>;
+
+/**
  * Slice variation for *Hero*
  */
-type PerformerHeroSliceVariation = PerformerHeroSliceDefault | PerformerHeroSliceShow
+type PerformerHeroSliceVariation = PerformerHeroSliceDefault | PerformerHeroSliceShow | PerformerHeroSliceInsights
 
 /**
  * Hero Shared Slice
@@ -1065,6 +1332,69 @@ type SloganSliceVariation = SloganSliceDefault
  */
 export type SloganSlice = prismic.SharedSlice<"slogan", SloganSliceVariation>;
 
+/**
+ * Item in *Talenti → Default → Primary → Talenti*
+ */
+export interface TalentiSliceDefaultPrimaryTalentsItem {
+	/**
+	 * Talento field in *Talenti → Default → Primary → Talenti*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: talenti.default.primary.talents[].talent
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	talent: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_image"]}]>;
+}
+
+/**
+ * Primary content in *Talenti → Default → Primary*
+ */
+export interface TalentiSliceDefaultPrimary {
+	/**
+	 * Titolo field in *Talenti → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Talenti
+	 * - **API ID Path**: talenti.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Talenti field in *Talenti → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: talenti.default.primary.talents[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	talents: prismic.GroupField<Simplify<TalentiSliceDefaultPrimaryTalentsItem>>;
+}
+
+/**
+ * Default variation for Talenti Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TalentiSliceDefault = prismic.SharedSliceVariation<"default", Simplify<TalentiSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Talenti*
+ */
+type TalentiSliceVariation = TalentiSliceDefault
+
+/**
+ * Talenti Shared Slice
+ *
+ * - **API ID**: `talenti`
+ * - **Description**: Talenti
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TalentiSlice = prismic.SharedSlice<"talenti", TalentiSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -1099,6 +1429,12 @@ declare module "@prismicio/client" {
 			TalentiDocumentData,
 			TalentiDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			DescrizioneSlice,
+			DescrizioneSliceDefaultPrimary,
+			DescrizioneSliceNoTitlePrimary,
+			DescrizioneSliceVariation,
+			DescrizioneSliceDefault,
+			DescrizioneSliceNoTitle,
 			FooterSlice,
 			FooterSliceDefaultPrimary,
 			FooterSliceFooterPerformerPrimary,
@@ -1113,6 +1449,7 @@ declare module "@prismicio/client" {
 			GridSliceVariation,
 			GridSliceDefault,
 			HomepageSlice,
+			HomepageSliceDefaultPrimaryShowLinkItem,
 			HomepageSliceDefaultPrimary,
 			HomepageSliceVariation,
 			HomepageSliceDefault,
@@ -1120,6 +1457,16 @@ declare module "@prismicio/client" {
 			KeyImageSliceDefaultPrimary,
 			KeyImageSliceVariation,
 			KeyImageSliceDefault,
+			MarqueeSlice,
+			MarqueeSliceDefaultPrimaryMarqueeTitlesItem,
+			MarqueeSliceDefaultPrimary,
+			MarqueeSliceVariation,
+			MarqueeSliceDefault,
+			PartnerSlice,
+			PartnerSliceDefaultPrimaryPartnerItem,
+			PartnerSliceDefaultPrimary,
+			PartnerSliceVariation,
+			PartnerSliceDefault,
 			PerformerGridSlice,
 			PerformerGridSliceDefaultPrimary,
 			PerformerGridSliceVariantPrimary,
@@ -1129,13 +1476,20 @@ declare module "@prismicio/client" {
 			PerformerHeroSlice,
 			PerformerHeroSliceDefaultPrimary,
 			PerformerHeroSliceShowPrimary,
+			PerformerHeroSliceInsightsPrimary,
 			PerformerHeroSliceVariation,
 			PerformerHeroSliceDefault,
 			PerformerHeroSliceShow,
+			PerformerHeroSliceInsights,
 			SloganSlice,
 			SloganSliceDefaultPrimary,
 			SloganSliceVariation,
-			SloganSliceDefault
+			SloganSliceDefault,
+			TalentiSlice,
+			TalentiSliceDefaultPrimaryTalentsItem,
+			TalentiSliceDefaultPrimary,
+			TalentiSliceVariation,
+			TalentiSliceDefault
 		}
 	}
 }

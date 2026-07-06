@@ -67,8 +67,8 @@
         "nome_performer": {
           "type": "Text",
           "config": {
-            "label": "Nome Performer",
-            "placeholder": "Jon Doe"
+            "label": "Nome Show",
+            "placeholder": "Gran Cabaret"
           }
         },
         "bio": {
@@ -78,6 +78,31 @@
             "placeholder": "Lorem Ipsum dolor sit amet consectetur adepscing elitr...",
             "multi": "paragraph",
             "allowTargetBlank": true
+          }
+        }
+      }
+    },
+    {
+      "id": "insights",
+      "name": "Insights",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/performer_hero/insights/5f86f47d00f023e310e3df47508f0c9cd1e88bd8.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "hero_background": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "nome_performer": {
+          "type": "Text",
+          "config": {
+            "label": "Insights",
+            "placeholder": "Insights"
           }
         }
       }

@@ -11,6 +11,27 @@
           "choices": {
             "footer": {
               "type": "SharedSlice"
+            },
+            "descrizione": {
+              "type": "SharedSlice"
+            },
+            "grid": {
+              "type": "SharedSlice"
+            },
+            "performer_hero": {
+              "type": "SharedSlice"
+            },
+            "key_image": {
+              "type": "SharedSlice"
+            },
+            "slogan": {
+              "type": "SharedSlice"
+            },
+            "partner": {
+              "type": "SharedSlice"
+            },
+            "marquee": {
+              "type": "SharedSlice"
             }
           }
         }

@@ -26,6 +26,31 @@
             "single": "paragraph,strong",
             "allowTargetBlank": false
           }
+        },
+        "show_link": {
+          "type": "Group",
+          "config": {
+            "label": "Show Link",
+            "repeat": true,
+            "fields": {
+              "show": {
+                "type": "Link",
+                "config": {
+                  "label": "Show",
+                  "select": "document",
+                  "customtypes": [
+                    {
+                      "id": "show",
+                      "fields": [
+                        "meta_image"
+                      ]
+                    }
+                  ],
+                  "repeat": false
+                }
+              }
+            }
+          }
         }
       }
     }

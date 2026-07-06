@@ -13,11 +13,15 @@
 		title?.replace(/^The Nerve \| /, '') ?? '';
 </script>
 
-<footer class="grid grid-cols-8 col-span-8 gap-x-4 w-full my-40 bg-[#0A0A0A]">
-    <h1 class="col-span-8 text-center">{slice.primary.motto}</h1>
+<footer
+    class="grid grid-cols-8 col-span-8 gap-x-4 w-full my-40 bg-[#0A0A0A]"
+    data-slice-type={slice.slice_type}
+	data-slice-variation={slice.variation}
+>
+    <h1 class="col-span-8 text-center mb-40">{slice.primary.motto}</h1>
 
 	{#if slice.variation == 'footerPerformer'}
-		<div class="col-span-8 flex flex-row w-full my-40">
+		<div class="col-span-8 flex flex-row w-full mb-40">
             <PrismicLink class="uppercase" field={slice.primary.related_performer} >
                 <strong>
                     {isFilled.contentRelationship(slice.primary.related_performer) ? stripSitePrefix(slice.primary.related_performer.data?.meta_title) : ''}
@@ -39,7 +43,7 @@
 
 	{:else if slice.variation == 'default'}
 
-		<div class="col-span-8 flex flex-row w-full my-40">
+		<div class="col-span-8 flex flex-row w-full mb-40">
 			<PrismicLink class="uppercase" field={slice.primary.related_show}>
 				<strong>
                     {isFilled.contentRelationship(slice.primary.related_show) ? stripSitePrefix(slice.primary.related_show.data?.meta_title) : ''}
