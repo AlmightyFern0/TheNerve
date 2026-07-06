@@ -10,6 +10,7 @@ import Partner from "./Partner/index.svelte";
 import PerformerGrid from "./PerformerGrid/index.svelte";
 import Hero from "./PerformerHero/index.svelte";
 import Slogan from "./Slogan/index.svelte";
+import Talenti from "./Talenti/index.svelte";
 
 export const components = {
 	descrizione: Descrizione,
@@ -21,5 +22,6 @@ export const components = {
 	partner: Partner,
 	performer_grid: PerformerGrid,
 	performer_hero: Hero,
-	slogan: Slogan
+	slogan: Slogan,
+	talenti: Talenti
 };

@@ -27,6 +27,7 @@
 	"dependencies": {
 		"@prismicio/client": "^7.21.8",
 		"@prismicio/svelte": "^2.2.1",
+		"gsap": "^3.15.0",
 		"locomotive-scroll": "^5.0.1"
 	}
 }

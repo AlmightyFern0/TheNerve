@@ -1,0 +1,51 @@
+{
+  "id": "talenti",
+  "type": "SharedSlice",
+  "name": "Talenti",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/talenti/default/03d07beb7d4435589bdbb802f9a0c16c8a3ef5ab.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "Talenti"
+          }
+        },
+        "talents": {
+          "type": "Group",
+          "config": {
+            "label": "Talenti",
+            "repeat": true,
+            "fields": {
+              "talent": {
+                "type": "Link",
+                "config": {
+                  "label": "Talento",
+                  "select": "document",
+                  "customtypes": [
+                    {
+                      "id": "singolo_performer",
+                      "fields": [
+                        "meta_title",
+                        "meta_image"
+                      ]
+                    }
+                  ],
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Talenti"
+}

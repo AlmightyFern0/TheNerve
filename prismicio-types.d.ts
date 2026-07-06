@@ -346,7 +346,7 @@ interface SingoloPerformerDocumentData {
  */
 export type SingoloPerformerDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<SingoloPerformerDocumentData>, "singolo_performer", Lang>;
 
-type TalentiDocumentDataSlicesSlice = never
+type TalentiDocumentDataSlicesSlice = TalentiSlice
 
 /**
  * Content for Talenti documents
@@ -680,6 +680,21 @@ type GridSliceVariation = GridSliceDefault
 export type GridSlice = prismic.SharedSlice<"grid", GridSliceVariation>;
 
 /**
+ * Item in *Homepage → Default → Primary → Show Link*
+ */
+export interface HomepageSliceDefaultPrimaryShowLinkItem {
+	/**
+	 * Show field in *Homepage → Default → Primary → Show Link*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: homepage.default.primary.show_link[].show
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	show: ContentRelationshipFieldWithData<[{"id":"show","fields":["meta_image"]}]>;
+}
+
+/**
  * Primary content in *Homepage → Default → Primary*
  */
 export interface HomepageSliceDefaultPrimary {
@@ -702,6 +717,16 @@ export interface HomepageSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	hero_description: prismic.RichTextField;
+	
+	/**
+	 * Show Link field in *Homepage → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: homepage.default.primary.show_link[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	show_link: prismic.GroupField<Simplify<HomepageSliceDefaultPrimaryShowLinkItem>>;
 }
 
 /**
@@ -1307,6 +1332,69 @@ type SloganSliceVariation = SloganSliceDefault
  */
 export type SloganSlice = prismic.SharedSlice<"slogan", SloganSliceVariation>;
 
+/**
+ * Item in *Talenti → Default → Primary → Talenti*
+ */
+export interface TalentiSliceDefaultPrimaryTalentsItem {
+	/**
+	 * Talento field in *Talenti → Default → Primary → Talenti*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: talenti.default.primary.talents[].talent
+	 * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+	 */
+	talent: ContentRelationshipFieldWithData<[{"id":"singolo_performer","fields":["meta_title","meta_image"]}]>;
+}
+
+/**
+ * Primary content in *Talenti → Default → Primary*
+ */
+export interface TalentiSliceDefaultPrimary {
+	/**
+	 * Titolo field in *Talenti → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Talenti
+	 * - **API ID Path**: talenti.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Talenti field in *Talenti → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: talenti.default.primary.talents[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	talents: prismic.GroupField<Simplify<TalentiSliceDefaultPrimaryTalentsItem>>;
+}
+
+/**
+ * Default variation for Talenti Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TalentiSliceDefault = prismic.SharedSliceVariation<"default", Simplify<TalentiSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Talenti*
+ */
+type TalentiSliceVariation = TalentiSliceDefault
+
+/**
+ * Talenti Shared Slice
+ *
+ * - **API ID**: `talenti`
+ * - **Description**: Talenti
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TalentiSlice = prismic.SharedSlice<"talenti", TalentiSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -1361,6 +1449,7 @@ declare module "@prismicio/client" {
 			GridSliceVariation,
 			GridSliceDefault,
 			HomepageSlice,
+			HomepageSliceDefaultPrimaryShowLinkItem,
 			HomepageSliceDefaultPrimary,
 			HomepageSliceVariation,
 			HomepageSliceDefault,
@@ -1395,7 +1484,12 @@ declare module "@prismicio/client" {
 			SloganSlice,
 			SloganSliceDefaultPrimary,
 			SloganSliceVariation,
-			SloganSliceDefault
+			SloganSliceDefault,
+			TalentiSlice,
+			TalentiSliceDefaultPrimaryTalentsItem,
+			TalentiSliceDefaultPrimary,
+			TalentiSliceVariation,
+			TalentiSliceDefault
 		}
 	}
 }
