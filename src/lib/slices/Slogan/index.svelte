@@ -7,7 +7,11 @@
 	const { slice }: Props = $props();
 </script>
 
-<section class="relative top-0 grid col-span-8 grid-cols-subgrid">
+<section 
+	class="relative top-0 grid col-span-8 grid-cols-subgrid"
+	data-slice-type={slice.slice_type}
+	data-slice-variation={slice.variation}
+>
         <h2 class="col-span-6 mb-4">{slice.primary.slogan}</h2>
 </section>
 

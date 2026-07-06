@@ -7,7 +7,7 @@
 	const { slice }: Props = $props();
 </script>
 
-<img src={slice.primary.key_img.url} alt={slice.primary.key_img.alt} class="col-span-8 h-212.5 w-screen object-cover">
+<img src={slice.primary.key_img.url} alt={slice.primary.key_img.alt} class="col-span-8 h-212.5 w-screen object-cover" data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 
 <style>
 	img {background-color: #0a0a0a;}

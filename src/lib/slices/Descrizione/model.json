@@ -1,0 +1,75 @@
+{
+  "id": "descrizione",
+  "type": "SharedSlice",
+  "name": "Descrizione",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/descrizione/default/029e22af5715e0e64bfd9e043216d516d90bd37e.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": "It Takes Nerve"
+          }
+        },
+        "descrizione": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrizione",
+            "placeholder": "Lorem ipsum dolor sit amet consectetur adepiscing elitr",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": false
+          }
+        },
+        "instagram": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram",
+            "placeholder": "Non inserire @ c'è già di default",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      }
+    },
+    {
+      "id": "noTitle",
+      "name": "No Title",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/thenerve/shared-slices/descrizione/noTitle/30a48153a676dd082e3f4447dbb3b16b8dec5f48.jpg?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "descrizione": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrizione",
+            "placeholder": "Lorem ipsum dolor sit amet consectetur adepiscing elitr",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": false
+          }
+        },
+        "instagram": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram",
+            "placeholder": "Non inserire @ c'è già di default",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      }
+    }
+  ],
+  "description": "Descrizione"
+}
